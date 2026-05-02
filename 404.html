@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Страница не найдена — Салам Тур</title>
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%23DC2626'/%3E%3Ctext x='50' y='73' font-family='system-ui,sans-serif' font-size='66' font-weight='800' fill='white' text-anchor='middle'%3EС%3C/text%3E%3C/svg%3E">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html, body {
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    overflow: hidden;
+  }
+
+  /* Полный экран без скролла, с iOS-фиксом
+     - 100svh: small viewport (учитывает URL-бар на iOS)
+     - 100dvh: dynamic viewport (растёт когда URL-бар скрывается)
+     - JS-fix через --vh для старых браузеров (см. внизу) */
+  body {
+    height: 100vh;
+    height: 100svh;
+    height: 100dvh;
+    height: calc(var(--vh, 1vh) * 100);
+    width: 100%;
+    color: #fff;
+    background-color: #0F172A;
+    background-image:
+      linear-gradient(180deg, rgba(15,23,42,0.65) 0%, rgba(15,23,42,0.92) 100%),
+      url('https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=2000&q=85&auto=format');
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    text-align: center;
+    position: relative;
+  }
+
+  .logo-link {
+    position: absolute;
+    top: max(20px, env(safe-area-inset-top));
+    left: 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 18px;
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    color: #fff;
+    text-decoration: none;
+    opacity: 0.85;
+    transition: opacity 0.15s;
+  }
+  .logo-link:hover { opacity: 1; }
+  .logo-mark {
+    width: 32px; height: 32px;
+    background: #DC2626;
+    color: #fff;
+    border-radius: 8px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 15px; font-weight: 800;
+  }
+
+  .code {
+    font-size: clamp(96px, 22vw, 200px);
+    font-weight: 900;
+    letter-spacing: -0.05em;
+    line-height: 1;
+    margin-bottom: 16px;
+    background: linear-gradient(180deg, #fff 0%, rgba(255,255,255,0.4) 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  h1 {
+    font-size: clamp(20px, 3.5vw, 30px);
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    margin-bottom: 32px;
+    line-height: 1.2;
+    max-width: 520px;
+  }
+
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 14px 28px;
+    background: #DC2626;
+    color: #fff;
+    border: none;
+    border-radius: 10px;
+    font-size: 15px;
+    font-weight: 700;
+    text-decoration: none;
+    cursor: pointer;
+    box-shadow: 0 8px 24px rgba(220,38,38,0.3);
+    transition: transform 0.15s, background 0.15s;
+    font-family: inherit;
+  }
+  .btn:hover {
+    transform: translateY(-1px);
+    background: #B91C1C;
+  }
+
+  .footer-mark {
+    position: absolute;
+    bottom: max(16px, env(safe-area-inset-bottom));
+    font-size: 11px;
+    color: rgba(255,255,255,0.45);
+    text-decoration: none;
+  }
+  .footer-mark:hover { color: rgba(255,255,255,0.8); }
+
+  @media (max-height: 500px) {
+    .code { font-size: 80px; margin-bottom: 8px; }
+    h1 { font-size: 18px; margin-bottom: 20px; }
+    .btn { padding: 11px 22px; font-size: 14px; }
+  }
+</style>
+</head>
+<body>
+
+<a href="index.html" class="logo-link">
+  <span class="logo-mark">С</span>
+  Салам Тур
+</a>
+
+<div class="code">404</div>
+<h1>Кажется, эта тропа ведёт в никуда</h1>
+<a href="index.html" class="btn">
+  ← Вернуться на главную
+</a>
+
+<a href="https://markins.ru?utm_source=salam-tour&utm_medium=404" target="_blank" rel="noopener" class="footer-mark">
+  Разработано в Markins
+</a>
+
+<script>
+  // iOS-fix для старых браузеров (до iOS 15.4): --vh
+  function setVh() {
+    const vh = window.innerHeight * 0.01;
+    document.documentElement.style.setProperty('--vh', vh + 'px');
+  }
+  setVh();
+  window.addEventListener('resize', setVh);
+  window.addEventListener('orientationchange', setVh);
+</script>
+
+</body>
+</html>

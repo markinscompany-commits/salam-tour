@@ -1,0 +1,9 @@
+# Скрываем всё по умолчанию
+*
+
+# Открываем только нужное для деплоя
+!.gitignore
+!README.md
+!index.html
+!privacy.html
+!404.html
