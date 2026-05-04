@@ -1,0 +1,1278 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Установочное интервью · Салам Тур</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Commissioner:wght@300;400;500;600;700&family=Unbounded:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #FFFFFF;
+  --bg-soft: #F7F7F8;
+  --bg-card: #FCFCFC;
+  --line: #E8E8EC;
+  --line-strong: #D4D4D8;
+  --ink: #1A1A1A;
+  --ink-70: rgba(0,0,0,0.62);
+  --ink-45: rgba(0,0,0,0.42);
+  --ink-25: rgba(0,0,0,0.18);
+  --accent: #C2410C;
+  --accent-soft: #FFF4ED;
+  --ok: #15803D;
+  --warn: #B45309;
+  --bad: #B91C1C;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'Commissioner', -apple-system, sans-serif;
+  font-size: 14px;
+  line-height: 1.65;
+  color: var(--ink);
+  background: var(--bg-soft);
+  -webkit-font-smoothing: antialiased;
+}
+.shell { max-width: 940px; margin: 0 auto; padding: 28px 24px 80px; }
+
+/* ===== Top bar ===== */
+.topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 14px 20px;
+  margin-bottom: 28px;
+  position: sticky;
+  top: 12px;
+  z-index: 50;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.04);
+}
+.topbar__brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-family: 'Unbounded', sans-serif;
+  font-weight: 500;
+  font-size: 13px;
+}
+.topbar__brand svg { height: 18px; width: auto; }
+.topbar__actions { display: flex; gap: 8px; }
+.btn {
+  font-family: 'Commissioner', sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+  border: 1px solid var(--line-strong);
+  background: #fff;
+  color: var(--ink);
+  padding: 8px 14px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.15s;
+}
+.btn:hover { border-color: var(--ink); }
+.btn--primary { background: var(--ink); color: #fff; border-color: var(--ink); }
+.btn--primary:hover { background: var(--accent); border-color: var(--accent); }
+.btn--danger { color: var(--bad); border-color: rgba(185,28,28,0.3); }
+.btn--danger:hover { border-color: var(--bad); background: rgba(185,28,28,0.05); }
+
+.save-status {
+  font-size: 11px;
+  color: var(--ink-45);
+  margin-right: 8px;
+  white-space: nowrap;
+}
+.save-status.is-saved { color: var(--ok); }
+
+/* ===== Header ===== */
+.doc-head {
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 36px 36px 28px;
+  margin-bottom: 24px;
+}
+.doc-head__kicker {
+  font-family: 'Unbounded', sans-serif;
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 12px;
+}
+.doc-head__title {
+  font-family: 'Unbounded', sans-serif;
+  font-size: 28px;
+  font-weight: 500;
+  letter-spacing: -0.5px;
+  margin-bottom: 14px;
+  line-height: 1.2;
+}
+.doc-head__lead {
+  color: var(--ink-70);
+  max-width: 620px;
+  margin-bottom: 24px;
+}
+.meta-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+  margin-top: 20px;
+}
+.meta-item label {
+  display: block;
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--ink-45);
+  font-weight: 500;
+  margin-bottom: 4px;
+  font-family: 'Unbounded', sans-serif;
+}
+.meta-item input {
+  width: 100%;
+  border: none;
+  border-bottom: 1px solid var(--line);
+  padding: 4px 0;
+  font-size: 13px;
+  font-family: inherit;
+  color: var(--ink);
+  background: transparent;
+}
+.meta-item input:focus { outline: none; border-bottom-color: var(--ink); }
+
+/* ===== Section ===== */
+.section {
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 32px 36px;
+  margin-bottom: 18px;
+  scroll-margin-top: 100px;
+}
+.section__head {
+  display: flex;
+  align-items: baseline;
+  gap: 14px;
+  margin-bottom: 8px;
+  flex-wrap: wrap;
+}
+.section__num {
+  font-family: 'Unbounded', sans-serif;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 1.5px;
+  color: var(--accent);
+  text-transform: uppercase;
+}
+.section__title {
+  font-family: 'Unbounded', sans-serif;
+  font-size: 22px;
+  font-weight: 500;
+  letter-spacing: -0.3px;
+  flex: 1;
+}
+.section__lead {
+  color: var(--ink-70);
+  margin-bottom: 28px;
+  max-width: 720px;
+  font-size: 13px;
+}
+
+/* ===== TOC ===== */
+.toc {
+  background: var(--accent-soft);
+  border: 1px solid #FED7AA;
+  border-radius: 14px;
+  padding: 20px 24px;
+  margin-bottom: 18px;
+}
+.toc__title {
+  font-family: 'Unbounded', sans-serif;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 12px;
+}
+.toc__list {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 4px 18px;
+  list-style: none;
+}
+.toc__list a {
+  font-size: 13px;
+  color: var(--ink);
+  text-decoration: none;
+  padding: 4px 0;
+  display: block;
+  border-bottom: 1px dotted transparent;
+}
+.toc__list a:hover { border-bottom-color: var(--ink-25); }
+.toc__list .num {
+  display: inline-block;
+  min-width: 24px;
+  color: var(--ink-45);
+  font-family: 'Unbounded', sans-serif;
+  font-size: 11px;
+  font-weight: 500;
+}
+
+/* ===== Form blocks ===== */
+.field {
+  margin-bottom: 18px;
+}
+.field__label {
+  display: block;
+  font-weight: 500;
+  margin-bottom: 8px;
+  font-size: 13px;
+}
+.field__hint {
+  font-size: 12px;
+  color: var(--ink-45);
+  margin-top: 4px;
+  margin-bottom: 6px;
+  line-height: 1.5;
+}
+input[type="text"], input[type="email"], input[type="tel"], input[type="url"], textarea, select {
+  font-family: inherit;
+  font-size: 13px;
+  width: 100%;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 10px 12px;
+  background: #fff;
+  color: var(--ink);
+  resize: vertical;
+}
+textarea { min-height: 60px; line-height: 1.55; }
+input:focus, textarea:focus, select:focus { outline: none; border-color: var(--ink); }
+
+.row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+}
+.row-3 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+}
+
+/* radio/checkbox groups */
+.choice-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+.choice {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  border: 1px solid var(--line-strong);
+  background: #fff;
+  border-radius: 999px;
+  padding: 6px 14px;
+  font-size: 12px;
+  cursor: pointer;
+  user-select: none;
+  transition: all 0.15s;
+}
+.choice input { display: none; }
+.choice:hover { border-color: var(--ink); }
+.choice.is-checked-keep { background: rgba(21,128,61,0.08); border-color: var(--ok); color: var(--ok); }
+.choice.is-checked-edit { background: rgba(180,83,9,0.08); border-color: var(--warn); color: var(--warn); }
+.choice.is-checked-drop { background: rgba(185,28,28,0.08); border-color: var(--bad); color: var(--bad); }
+.choice.is-checked-default { background: var(--ink); border-color: var(--ink); color: #fff; }
+
+/* block card (структура) */
+.block-card {
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 18px 20px;
+  margin-bottom: 12px;
+  background: var(--bg-card);
+}
+.block-card__head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 6px;
+  flex-wrap: wrap;
+}
+.block-card__title {
+  font-weight: 600;
+  font-size: 14px;
+  margin-bottom: 2px;
+}
+.block-card__title .pos {
+  display: inline-block;
+  font-family: 'Unbounded', sans-serif;
+  font-size: 10px;
+  font-weight: 500;
+  color: var(--ink-45);
+  margin-right: 8px;
+  letter-spacing: 1px;
+}
+.block-card__desc {
+  font-size: 12px;
+  color: var(--ink-70);
+  line-height: 1.55;
+  margin-bottom: 10px;
+}
+.block-card__notes {
+  margin-top: 10px;
+}
+.block-card__notes textarea {
+  background: #fff;
+  font-size: 12px;
+}
+
+/* palettes */
+.palette-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin-bottom: 18px;
+}
+.palette {
+  border: 2px solid var(--line);
+  border-radius: 12px;
+  overflow: hidden;
+  cursor: pointer;
+  transition: all 0.15s;
+}
+.palette.is-checked { border-color: var(--ink); box-shadow: 0 0 0 3px rgba(0,0,0,0.05); }
+.palette__preview {
+  height: 130px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 14px;
+  position: relative;
+}
+.palette__preview h4 {
+  font-family: 'Unbounded', sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  margin: 0;
+}
+.palette__btn {
+  align-self: flex-start;
+  padding: 6px 12px;
+  border-radius: 6px;
+  font-size: 11px;
+  font-weight: 500;
+}
+.palette__swatches {
+  display: flex;
+  gap: 4px;
+  margin-top: 8px;
+}
+.palette__swatch {
+  width: 16px;
+  height: 16px;
+  border-radius: 4px;
+  border: 1px solid rgba(255,255,255,0.4);
+}
+.palette__body {
+  padding: 12px 14px;
+  background: #fff;
+  font-size: 12px;
+  border-top: 1px solid var(--line);
+}
+.palette__body input {
+  display: none;
+}
+.palette__name {
+  font-weight: 600;
+  font-size: 13px;
+  margin-bottom: 2px;
+}
+.palette__hint {
+  color: var(--ink-45);
+  font-size: 11px;
+}
+
+/* palette A — графит + янтарь */
+.palette--a .palette__preview { background: #1C1917; color: #fafaf9; }
+.palette--a .palette__btn { background: #F59E0B; color: #1C1917; }
+/* palette B — винный + янтарь */
+.palette--b .palette__preview { background: #3F1D1D; color: #fef2f2; }
+.palette--b .palette__btn { background: #F59E0B; color: #1C1917; }
+/* palette C — светлый + оранж */
+.palette--c .palette__preview { background: #FAFAF9; color: #1C1917; border-bottom: 1px solid var(--line); }
+.palette--c .palette__btn { background: #F97316; color: #fff; }
+
+/* admin grid */
+.admin-section {
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 18px 22px;
+  margin-bottom: 14px;
+  background: var(--bg-card);
+}
+.admin-section__head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+.admin-section__title {
+  font-family: 'Unbounded', sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+}
+.admin-section__contract {
+  font-size: 11px;
+  color: var(--ink-45);
+  background: var(--bg-soft);
+  border-radius: 6px;
+  padding: 3px 8px;
+}
+.admin-fields {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px 16px;
+  margin-bottom: 12px;
+}
+.admin-field {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
+  color: var(--ink);
+}
+.admin-field input[type="checkbox"] {
+  width: 16px;
+  height: 16px;
+  accent-color: var(--accent);
+  cursor: pointer;
+}
+
+/* content table */
+.content-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 12px;
+  margin-bottom: 8px;
+}
+.content-table thead th {
+  background: var(--bg-soft);
+  border-bottom: 1px solid var(--line);
+  font-family: 'Unbounded', sans-serif;
+  font-size: 9px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--ink-70);
+  padding: 8px 10px;
+  text-align: left;
+}
+.content-table td {
+  border-bottom: 1px solid var(--line);
+  padding: 6px 6px;
+  vertical-align: top;
+}
+.content-table td:first-child { padding-left: 10px; font-weight: 500; }
+.content-table input, .content-table select {
+  padding: 6px 8px;
+  font-size: 12px;
+  border: 1px solid transparent;
+  background: transparent;
+  border-radius: 4px;
+}
+.content-table input:focus, .content-table select:focus {
+  border-color: var(--line-strong);
+  background: #fff;
+}
+.content-table select { cursor: pointer; }
+
+/* faq */
+.faq-row {
+  border-bottom: 1px solid var(--line);
+  padding: 12px 0;
+}
+.faq-row:last-child { border-bottom: none; }
+.faq-row__q {
+  font-weight: 600;
+  font-size: 13px;
+  margin-bottom: 6px;
+}
+.faq-row textarea {
+  font-size: 12px;
+  background: var(--bg-soft);
+  border-color: transparent;
+}
+
+/* differentiator row */
+.diff-row {
+  display: grid;
+  grid-template-columns: 30px 1fr 100px 1fr;
+  gap: 10px;
+  align-items: center;
+  padding: 8px 0;
+  border-bottom: 1px solid var(--line);
+}
+.diff-row:last-child { border-bottom: none; }
+.diff-row__num {
+  font-family: 'Unbounded', sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--accent);
+}
+.diff-row__base { font-size: 13px; }
+.diff-row__base small { display: block; color: var(--ink-45); font-size: 11px; }
+.diff-row select { width: 100%; }
+.diff-row input { width: 100%; font-size: 12px; padding: 6px 10px; }
+
+/* big notes */
+.big-notes textarea {
+  min-height: 140px;
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+/* helpers */
+.divider {
+  height: 1px;
+  background: var(--line);
+  margin: 22px 0;
+}
+.callout {
+  background: var(--accent-soft);
+  border-left: 3px solid var(--accent);
+  border-radius: 4px;
+  padding: 12px 16px;
+  font-size: 12px;
+  color: var(--ink-70);
+  margin-bottom: 18px;
+  line-height: 1.6;
+}
+.callout strong { color: var(--ink); }
+
+@media (max-width: 720px) {
+  .meta-grid { grid-template-columns: 1fr 1fr; }
+  .palette-grid { grid-template-columns: 1fr; }
+  .row, .row-3 { grid-template-columns: 1fr; }
+  .admin-fields { grid-template-columns: 1fr; }
+  .toc__list { grid-template-columns: 1fr; }
+  .diff-row { grid-template-columns: 30px 1fr; }
+  .diff-row select, .diff-row input { grid-column: 2; }
+  .doc-head, .section { padding: 22px; }
+  .topbar { padding: 10px 14px; flex-wrap: wrap; gap: 10px; }
+}
+
+@media print {
+  body { background: #fff; font-size: 11px; }
+  .topbar, .toc, .btn { display: none; }
+  .shell { max-width: 100%; padding: 0; }
+  .section, .doc-head { page-break-inside: avoid; box-shadow: none; border-radius: 0; border-color: #ccc; }
+  .palette { break-inside: avoid; }
+  textarea, input { border-color: #ddd !important; }
+  .save-status { display: none; }
+}
+</style>
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" xmlns="http://www.w3.org/2000/svg">
+  <symbol id="markins-logo" viewBox="0 0 578 100">
+    <path d="M457.7 69.6c0 .7-.6 1.3-1.3 1.3h-18.3c-.7 0-1.3-.6-1.3-1.3v-2c0-1.2-1.5-1.8-2.3-.9l-3.2 3.7c-.3.3-.6.5-1 .5h-32.2c-.7 0-1.3-.6-1.3-1.3V31c0-.7.6-1.3 1.3-1.3h18.3c.7 0 1.3.6 1.3 1.3V54c0 .7.6 1.3 1.3 1.3h10.9c.4 0 .7-.2.9-.4l5.6-6.5c.2-.2.3-.5.3-.8V31c0-.7.6-1.3 1.3-1.3h18.3c.7 0 1.3.6 1.3 1.3v38.6z" fill="#1A1A1A"/>
+    <path fill-rule="evenodd" clip-rule="evenodd" d="M50.4 100C50.4 72.4 73.3 50 100.9 50 73.3 50 50.4 27.6 50.4 0c0 27.6-22.8 50-50.4 50 27.6 0 50.4 22.4 50.4 50z" fill="#1A1A1A"/>
+  </symbol>
+</svg>
+
+<div class="shell">
+
+  <!-- Top bar -->
+  <div class="topbar">
+    <div class="topbar__brand">
+      <span style="font-family:'Unbounded',sans-serif;font-weight:500;letter-spacing:1.5px;font-size:11px;text-transform:uppercase;">markins</span>
+      <span style="opacity:0.3">·</span>
+      <span>Установочное интервью · Салам Тур</span>
+    </div>
+    <div class="topbar__actions">
+      <span class="save-status" id="save-status">Изменения сохраняются автоматически</span>
+    </div>
+  </div>
+
+  <!-- Header -->
+  <div class="doc-head">
+    <div class="doc-head__kicker">Установочное интервью · Этап 1, блок 1.1</div>
+    <h1 class="doc-head__title">Согласование структуры, палитры,<br>админки и контента</h1>
+    <p class="doc-head__lead">Договор № 20042026 от 20.04.2026 г. Этап 1 оплачен 22.04.2026. Цель встречи — снять неопределённость в трёх местах: визуал, наполнение админки, контент-цепочка с ответственными и сроками. Заполняйте по ходу разговора, документ сохраняется в браузере автоматически.</p>
+  </div>
+
+  <!-- TOC -->
+  <nav class="toc">
+    <div class="toc__title">Содержание интервью</div>
+    <ul class="toc__list">
+      <li><a href="#sec-0"><span class="num">0</span>Быстрые подтверждения</a></li>
+      <li><a href="#sec-1"><span class="num">1</span>Структура — 13 блоков</a></li>
+      <li><a href="#sec-2"><span class="num">2</span>Палитра</a></li>
+      <li><a href="#sec-3"><span class="num">3</span>6 отличий «Почему мы»</a></li>
+      <li><a href="#sec-4"><span class="num">4</span>Админка — 6 разделов</a></li>
+      <li><a href="#sec-5"><span class="num">5</span>Контент-инвентаризация</a></li>
+      <li><a href="#sec-6"><span class="num">6</span>FAQ — список вопросов</a></li>
+      <li><a href="#sec-7"><span class="num">7</span>Свободные заметки</a></li>
+    </ul>
+  </nav>
+
+  <!-- ============ Раздел 0. Быстрые подтверждения ============ -->
+  <section class="section" id="sec-0">
+    <div class="section__head">
+      <span class="section__num">Раздел 0</span>
+      <h2 class="section__title">Быстрые подтверждения</h2>
+    </div>
+    <p class="section__lead">Короткие фактические уточнения. Снимаем за первые 10 минут, не уходя в подробности.</p>
+
+    <div class="row">
+      <div class="field">
+        <label class="field__label">Первый ли это сезон под брендом «Салам Тур»?</label>
+        <input type="text" data-key="q_brand_history" placeholder="Да / водили под другим именем — каким">
+      </div>
+      <div class="field">
+        <label class="field__label">Кто принимает решения по дизайну</label>
+        <input type="text" data-key="q_decisionmaker" placeholder="Шарип / Шарип + Камиль / другое">
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="field">
+        <label class="field__label">E-mail для писем с сайта (info@…)</label>
+        <input type="email" data-key="q_email" placeholder="Заведём на домене или использовать существующий?">
+      </div>
+      <div class="field">
+        <label class="field__label">Телефон в шапке/футере</label>
+        <input type="text" data-key="q_phone" placeholder="+7 ··· или скрываем, оставляем только Telegram?">
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="field">
+        <label class="field__label">Telegram-группа для приёма заявок</label>
+        <input type="text" data-key="q_tg_group" placeholder="Ссылка / ID. Если ещё нет — создадим в Этапе 1">
+      </div>
+      <div class="field">
+        <label class="field__label">Кто отвечает на заявки и в какое время</label>
+        <input type="text" data-key="q_tg_responder" placeholder="Например: Шарип, 9:00–22:00 МСК">
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="field">
+        <label class="field__label">Целевое время ответа (для подписи под формой)</label>
+        <input type="text" data-key="q_response_time" placeholder='По исследованию ставим «15 минут» — подтверждаем?'>
+      </div>
+      <div class="field">
+        <label class="field__label">Кто будет вести Я.Директ после запуска</label>
+        <input type="text" data-key="q_ads_owner" placeholder="Сами / подрядчик / пока не знаем">
+      </div>
+    </div>
+
+    <div class="field">
+      <label class="field__label">Telegram-канал для контента (фото туров, анонсы)</label>
+      <input type="text" data-key="q_tg_channel" placeholder="Есть ссылка / нужно создавать / не планируется">
+    </div>
+
+    <div class="field">
+      <label class="field__label">Онлайн-чат на сайте</label>
+      <p class="field__hint">Чат прямо на странице повышает конверсию, <strong>но только если команда реально отвечает в течение 15 минут в рабочее время</strong>. Если ответы будут приходить через час — чат, наоборот, снижает доверие и лучше его не ставить. Альтернатива — кнопки мессенджеров, которые уже есть в шапке.</p>
+      <div class="choice-group" data-radio="q_chat">
+        <label class="choice"><input type="radio" name="q_chat" value="yes"> Да, ставим — готовы отвечать за 15 минут в рабочее время</label>
+        <label class="choice"><input type="radio" name="q_chat" value="no"> Нет — оставляем только мессенджеры в шапке</label>
+        <label class="choice"><input type="radio" name="q_chat" value="later"> Позже, после старта сезона</label>
+      </div>
+      <input type="text" data-key="q_chat_notes" placeholder="Комментарий: график, кто отвечает, какой инструмент (Jivo / Tawk / др.)" style="margin-top:8px">
+    </div>
+  </section>
+
+  <!-- ============ Раздел 1. Структура ============ -->
+  <section class="section" id="sec-1">
+    <div class="section__head">
+      <span class="section__num">Раздел 1</span>
+      <h2 class="section__title">Структура — 13 блоков варфрейма</h2>
+    </div>
+    <p class="section__lead">По каждому блоку из текущего варфрейма отметьте решение. Открыто демонстрируйте на экране — пусть Шарип реагирует на конкретику. По договору 12 блоков, в варфрейме 13 (добавлен «5 причин почему Дагестан»). П. 3.6 ТЗ это разрешает.</p>
+
+    <div class="callout">
+      <strong>Демо:</strong> https://markinscompany-commits.github.io/salam-tour/ — открыть в отдельной вкладке. Переключатель палитр — в правом нижнем углу страницы (понадобится в Разделе 2).
+    </div>
+
+    <!-- 13 блоков -->
+    <div id="blocks-list"></div>
+  </section>
+
+  <!-- ============ Раздел 2. Палитра ============ -->
+  <section class="section" id="sec-2">
+    <div class="section__head">
+      <span class="section__num">Раздел 2</span>
+      <h2 class="section__title">Палитра — A, B, C или своя</h2>
+    </div>
+    <p class="section__lead">В варфрейме реализованы три варианта. Покажите все три на демо (переключатель в правом нижнем углу страницы), спросите «какая ближе по ощущению». Если ни одна — собираем 2–3 референса.</p>
+
+    <div class="palette-grid">
+      <label class="palette palette--a" data-palette-card="a">
+        <div class="palette__preview">
+          <h4>Графит + янтарь</h4>
+          <div class="palette__swatches">
+            <span class="palette__swatch" style="background:#1C1917"></span>
+            <span class="palette__swatch" style="background:#292524"></span>
+            <span class="palette__swatch" style="background:#F59E0B"></span>
+            <span class="palette__swatch" style="background:#FAFAF9;border-color:#999"></span>
+          </div>
+          <span class="palette__btn">Подобрать тур</span>
+        </div>
+        <div class="palette__body">
+          <input type="radio" name="palette_choice" value="a" data-key="q_palette">
+          <div class="palette__name">Палитра A</div>
+          <div class="palette__hint">Тёмный фон, янтарный CTA. Серьёзный, премиальный тон. Хорошо для холодного трафика — фокус на контенте.</div>
+        </div>
+      </label>
+
+      <label class="palette palette--b" data-palette-card="b">
+        <div class="palette__preview">
+          <h4>Винный + янтарь</h4>
+          <div class="palette__swatches">
+            <span class="palette__swatch" style="background:#3F1D1D"></span>
+            <span class="palette__swatch" style="background:#5C2424"></span>
+            <span class="palette__swatch" style="background:#F59E0B"></span>
+            <span class="palette__swatch" style="background:#FEF2F2;border-color:#999"></span>
+          </div>
+          <span class="palette__btn">Подобрать тур</span>
+        </div>
+        <div class="palette__body">
+          <input type="radio" name="palette_choice" value="b" data-key="q_palette">
+          <div class="palette__name">Палитра B</div>
+          <div class="palette__hint">Тёмно-винный фон, теплее A. Аутентичный, кавказский характер. Сильный эмоциональный вход.</div>
+        </div>
+      </label>
+
+      <label class="palette palette--c" data-palette-card="c">
+        <div class="palette__preview">
+          <h4>Светлый + оранж</h4>
+          <div class="palette__swatches">
+            <span class="palette__swatch" style="background:#FAFAF9;border-color:#999"></span>
+            <span class="palette__swatch" style="background:#F5F5F4;border-color:#999"></span>
+            <span class="palette__swatch" style="background:#F97316"></span>
+            <span class="palette__swatch" style="background:#1C1917;border-color:#999"></span>
+          </div>
+          <span class="palette__btn">Подобрать тур</span>
+        </div>
+        <div class="palette__body">
+          <input type="radio" name="palette_choice" value="c" data-key="q_palette">
+          <div class="palette__name">Палитра C</div>
+          <div class="palette__hint">Светлый фон, оранжевый акцент. Лёгкий, дружелюбный тон. Лучше работает на семейный сегмент и SEO.</div>
+        </div>
+      </label>
+    </div>
+
+    <div class="field">
+      <label class="field__label">Если ни одна не подходит — что хотите по цвету?</label>
+      <p class="field__hint">2–3 референса (ссылки на сайты, которые нравятся), либо словесно: «тёплая земля», «холодная горная», «как у Аксакала», «спокойный беж + один яркий акцент».</p>
+      <textarea data-key="q_palette_custom" placeholder="Референсы / описание желаемого настроения"></textarea>
+    </div>
+  </section>
+
+  <!-- ============ Раздел 3. 6 отличий ============ -->
+  <section class="section" id="sec-3">
+    <div class="section__head">
+      <span class="section__num">Раздел 3</span>
+      <h2 class="section__title">«Почему Салам Тур» — отличия в hero</h2>
+    </div>
+    <p class="section__lead">Блок «6 отличий» из исследования вшит в hero как 5 trust-items. Подтверждаем формулировки или меняем. Если важно — выносим отдельным блоком с 6 карточками ниже по странице.</p>
+
+    <div id="diffs-list"></div>
+
+    <div class="divider"></div>
+
+    <div class="field">
+      <label class="field__label">Решение по структуре отличий</label>
+      <div class="choice-group" data-radio="q_diff_structure">
+        <label class="choice"><input type="radio" name="q_diff_structure" value="keep"> Оставляем 5 trust-items в hero</label>
+        <label class="choice"><input type="radio" name="q_diff_structure" value="extra"> Делаем 5 в hero + отдельный блок ниже с подробностями</label>
+        <label class="choice"><input type="radio" name="q_diff_structure" value="move"> Убираем из hero, делаем только отдельный блок</label>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ Раздел 4. Админка ============ -->
+  <section class="section" id="sec-4">
+    <div class="section__head">
+      <span class="section__num">Раздел 4</span>
+      <h2 class="section__title">Что Шарип редактирует через админку</h2>
+    </div>
+    <p class="section__lead">По договору — 6 разделов. Здесь определяем глубину редактирования по каждому: какие поля Шарип меняет сам, что вшито в код, что лучше оставить нам. От этого зависит схема CMS.</p>
+
+    <div id="admin-list"></div>
+  </section>
+
+  <!-- ============ Раздел 5. Контент-инвентаризация ============ -->
+  <section class="section" id="sec-5">
+    <div class="section__head">
+      <span class="section__num">Раздел 5</span>
+      <h2 class="section__title">Контент-инвентаризация</h2>
+    </div>
+    <p class="section__lead">По каждому типу контента: есть ли у Шарипа, кто готовит, к какой дате, от кого. Используем для дизайн-фазы — когда чего ждать. Все срывы дат фиксируем в рисках.</p>
+
+    <table class="content-table" id="content-table">
+      <thead>
+        <tr>
+          <th style="width:26%">Что нужно</th>
+          <th style="width:14%">Объём</th>
+          <th style="width:14%">Статус</th>
+          <th style="width:18%">Кто готовит</th>
+          <th style="width:12%">Дата</th>
+          <th style="width:16%">Комментарий</th>
+        </tr>
+      </thead>
+      <tbody id="content-tbody"></tbody>
+    </table>
+  </section>
+
+  <!-- ============ Раздел 6. FAQ ============ -->
+  <section class="section" id="sec-6">
+    <div class="section__head">
+      <span class="section__num">Раздел 6</span>
+      <h2 class="section__title">FAQ — согласование списка вопросов</h2>
+    </div>
+    <p class="section__lead">10 вопросов из исследования, которые холодная аудитория задаёт чаще всего. На интервью только согласуем список: какие оставляем, какие убираем, какие переформулировать. Ответы напишем сами — отдельно записываем только персональные факты Шарипа, которые невозможно найти в открытых источниках.</p>
+
+    <div id="faq-list"></div>
+
+    <div class="divider"></div>
+
+    <div class="field">
+      <label class="field__label">Персональные факты, которых нет в открытых источниках</label>
+      <p class="field__hint">Если по какому-то вопросу у Шарипа есть нюанс, которого мы не найдём в интернете — записываем сюда (с указанием номера вопроса). Например: «По #6 — рассрочка только через Т-банк, до 6 месяцев»; «По #9 — на нашем флагмане связь пропадает на 2 ночёвки в Хунзахе».</p>
+      <textarea data-key="q_faq_personal" placeholder="Привязывайте к номерам вопросов выше" style="min-height:100px"></textarea>
+    </div>
+
+    <div class="field">
+      <label class="field__label">Свои вопросы Шарипа в FAQ</label>
+      <p class="field__hint">Что ещё клиенты спрашивают чаще всего, чего нет в нашем списке.</p>
+      <textarea data-key="q_faq_extra" placeholder="Дополнительные вопросы для FAQ"></textarea>
+    </div>
+  </section>
+
+  <!-- ============ Раздел 7. Заметки ============ -->
+  <section class="section" id="sec-7">
+    <div class="section__head">
+      <span class="section__num">Раздел 7</span>
+      <h2 class="section__title">Свободные заметки</h2>
+    </div>
+    <p class="section__lead">Всё, что не уложилось в структурные разделы выше: цитаты Шарипа, неожиданные открытия, новые риски, договорённости вне договора.</p>
+
+    <div class="field big-notes">
+      <label class="field__label">Заметки по ходу разговора</label>
+      <textarea data-key="q_free_notes" placeholder="Цитаты, неожиданные факты, идеи, риски…"></textarea>
+    </div>
+  </section>
+
+</div>
+
+<script>
+// ============ Данные ============
+
+const BLOCKS = [
+  { id: 1, title: 'Hero', desc: 'Фото-фон, заголовок «Авторские туры по горному Дагестану», 2 кнопки CTA («Подобрать тур», «Смотреть туры»), 4 trust-items: Аттестация · Малые группы · Программы 2026 · Ответ за 15 минут.' },
+  { id: 2, title: 'Header (шапка)', desc: 'Логотип, навигация (Туры / Программа / Гиды / Вопросы), мессенджеры (WhatsApp / Telegram / Max), телефон, кнопка «Оставить заявку».' },
+  { id: 3, title: 'Квиз «Подберём тур за 1 минуту»', desc: '4 шага (формат / даты / группа / интерес) + контакты. Радиокнопки, прогресс-бар. Заявка падает в Telegram-чат.' },
+  { id: 4, title: 'Каталог «Программы сезона 2026»', desc: '4 вкладки: Многодневные / Джип-туры / Однодневные / Индивидуальные. Карточка тура: фото + бейдж + название + длительность + локаций + цена «от X ₽ / чел.» + кнопка «Узнать программу».' },
+  { id: 5, title: '«5 причин, почему Дагестан удивит»', desc: 'Образовательный блок — 5 карточек с фото и краткими описаниями (Сулак, Дербент, Гамсутль, кухня, гостеприимство). Вне ТЗ договора, добавлен по исследованию.' },
+  { id: 6, title: 'Программа флагманского тура по дням', desc: 'Аккордеон «День 1 — День N» с локациями, что включено, что доплачивается, фото-превью. Расписание ближайших заездов с кол-вом мест.' },
+  { id: 7, title: '«Наши гиды»', desc: 'Карточки гидов: фото, имя, специализация, описание, годы опыта, число туров. Под блоком — пояснение про аттестацию Минтуризма РД.' },
+  { id: 8, title: '«Дагестан, который не найти в типовых турах»', desc: '5 карточек уникальных локаций (Гамсутль, Сулак, Дербент, Кахиб, Хунзах) с фото, названием и кратким описанием. Lightbox по клику.' },
+  { id: 9, title: 'Отзывы туристов', desc: 'Видео-отзыв в начале + 4–6 текстовых с фото клиентов или скриншоты переписки. Ссылка на отзывы в Я.Картах / 2ГИС.' },
+  { id: 10, title: 'FAQ — частые вопросы', desc: 'Аккордеон, 10 вопросов: безопасность, дресс-код, дети, что включено, добраться, оплата, алкоголь, еда, связь, возврат.' },
+  { id: 11, title: '«Хотите что-то особенное» — индивидуальный тур', desc: 'Форма из 3 полей (имя, контакт, свободный текст), кнопка «Обсудить индивидуальный тур», подпись «Камиль отвечает за 15 минут с 9:00 до 22:00».' },
+  { id: 12, title: 'Галерея «Дагестан в кадрах» + анонс Telegram-канала', desc: 'Mosaic-сетка из 10–15 фото с подписями. Перед футером — карточка-приглашение в Telegram-канал.' },
+  { id: 13, title: 'Footer + sticky CTA + cookie', desc: 'Реквизиты ИП, ссылки на политику и оферту, контакты, соцсети. Sticky-кнопка «Telegram» снизу. Cookie-баннер по 152-ФЗ.' }
+];
+
+const DIFFS = [
+  { num: '01', base: 'Аттестация Минтуризма РД', sub: 'не блогер, не таксист' },
+  { num: '02', base: 'Малые группы до 7 человек', sub: 'внимание каждому' },
+  { num: '03', base: 'Уникальные маршруты', sub: 'открываем сами, обновляем каждый сезон' },
+  { num: '04', base: 'Программы 2026 обновлены', sub: 'не «вечная» программа из 2020' },
+  { num: '05', base: 'Ответ за 15 минут', sub: 'в рабочее время, в Telegram' },
+  { num: '06', base: 'Договор и чек', sub: 'официальное ИП, не «по дружбе»' }
+];
+
+const ADMIN_SECTIONS = [
+  {
+    id: 'tours', title: 'Туры', contract: 'обязательно по договору',
+    fields: [
+      'Категория (Многодневные / Джип / Однодневные / Индивидуальные)',
+      'Название тура',
+      'Обложка-фото',
+      'Бейдж (Хит / Новинка / Осталось N мест / без бейджа)',
+      'Длительность (5 дней / 4 ночи)',
+      'Количество локаций',
+      'Цена «от X ₽ / чел.»',
+      'Программа по дням (день — локации — описание)',
+      'Что включено в стоимость',
+      'Что оплачивается дополнительно',
+      'Дополнительные фото тура',
+      'Возможность добавить новый тур',
+      'Возможность скрыть/удалить тур'
+    ],
+    questions: [
+      { key: 'tours_count', label: 'Сколько туров будет в каталоге к старту сезона', placeholder: 'Например: 3 многодневных + 2 джип + 2 однодневных' },
+      { key: 'tours_freq', label: 'Как часто Шарип ожидает редактировать туры', placeholder: 'Раз в сезон / каждую неделю / по факту' }
+    ]
+  },
+  {
+    id: 'dates', title: 'Даты туров (расписание заездов)', contract: 'обязательно по договору',
+    fields: [
+      'Привязка к туру',
+      'Дата заезда',
+      'Дата окончания',
+      'Свободных мест',
+      'Цена на заезд (если отличается от базовой)',
+      'Статус (открыт / закрыт / завершён)',
+      'Возможность скрывать прошедшие'
+    ],
+    questions: [
+      { key: 'dates_scope', label: 'Расписание для всех туров или только для флагмана', placeholder: 'Все многодневные / только флагман / решаем по ходу' },
+      { key: 'dates_freq', label: 'Как часто обновляется расписание', placeholder: 'Раз в неделю / раз в месяц / по факту бронирований' }
+    ]
+  },
+  {
+    id: 'guides', title: 'Гиды', contract: 'обязательно по договору',
+    fields: [
+      'Имя',
+      'Фото',
+      'Специализация (1 строка)',
+      'Описание (2–4 предложения)',
+      'Лет опыта',
+      'Туров проведено',
+      'Привязка к турам, которые ведёт',
+      'Возможность добавлять новых гидов'
+    ],
+    questions: [
+      { key: 'guides_count', label: 'Сколько гидов в команде сейчас', placeholder: 'Например: 3 гида + 2 водителя-проводника' },
+      { key: 'guides_attest', label: 'У всех ли есть аттестация Минтуризма РД', placeholder: 'У всех / только у части (у кого) / номера свидетельств' }
+    ]
+  },
+  {
+    id: 'reviews', title: 'Отзывы', contract: 'обязательно по договору',
+    fields: [
+      'Имя автора',
+      'Город',
+      'Дата отзыва',
+      'Рейтинг (1–5)',
+      'Текст',
+      'Фото клиента (опционально)',
+      'Скриншот переписки (опционально)',
+      'Видео-отзыв (опционально)',
+      'Привязка к туру',
+      'Согласие на публикацию (чекбокс)'
+    ],
+    questions: [
+      { key: 'reviews_count', label: 'Сколько отзывов есть к началу сезона', placeholder: 'Текстовых: ___, фото: ___, видео: ___, скриншотов: ___' },
+      { key: 'reviews_source', label: 'Откуда взять основной поток отзывов', placeholder: 'Я.Карты / 2ГИС / переписка в TG / просим клиентов записать' }
+    ]
+  },
+  {
+    id: 'faq', title: 'FAQ', contract: 'обязательно по договору',
+    fields: [
+      'Вопрос',
+      'Ответ',
+      'Порядок (drag & drop)',
+      'Категория (если нужно — Безопасность / Оплата / Логистика / …)',
+      'Возможность скрывать неактуальные'
+    ],
+    questions: [
+      { key: 'faq_count', label: 'Сколько вопросов в FAQ держим на старте', placeholder: 'По исследованию — 10. Меньше / больше?' }
+    ]
+  },
+  {
+    id: 'gallery', title: 'Галерея', contract: 'обязательно по договору',
+    fields: [
+      'Фото',
+      'Подпись (опционально)',
+      'Привязка к туру (опционально)',
+      'Порядок отображения',
+      'Видео-вставки (reels-формат)'
+    ],
+    questions: [
+      { key: 'gallery_count', label: 'Сколько фото будет в галерее на старте', placeholder: 'По договору 30–50, реалистично сколько' }
+    ]
+  }
+];
+
+const CONTENT_ROWS = [
+  { type: 'Hero — главное фото горного Дагестана', volume: '1 шт, в высоком качестве' },
+  { type: 'Логотип', volume: 'SVG / готовый макет' },
+  { type: 'Описания туров (тексты + цены + что включено)', volume: '5–7 туров' },
+  { type: 'Программы по дням (для флагмана и других)', volume: '5–7 программ' },
+  { type: 'Фото обложек туров', volume: '5–7 фото' },
+  { type: 'Фото локаций (для блока «5 причин» и «уникальные локации»)', volume: '10+ фото' },
+  { type: 'Карточки гидов: фото + биография + цифры', volume: '3+ гида' },
+  { type: 'Уникальные локации — список и описания', volume: '4–6 шт' },
+  { type: 'Отзывы текстовые', volume: '6–10 шт' },
+  { type: 'Скриншоты переписки в Telegram', volume: '4–6 шт' },
+  { type: 'Видео-отзыв', volume: '1–2 шт по 1–2 мин' },
+  { type: 'Ответы на 10 FAQ-вопросов', volume: '1–2 предложения на каждый' },
+  { type: 'Галерея фото с туров', volume: '30–50 шт по договору' },
+  { type: 'Короткие видео для галереи (reels)', volume: '2–3 ролика по 30–60 сек' },
+  { type: '«Слово основателя» — личный текст 3–5 предложений', volume: 'опционально, повышает конверсию' },
+  { type: 'Письменное согласие фотографа-коллеги', volume: 'обязательно по ТЗ' },
+  { type: 'Реквизиты ИП для футера', volume: 'есть из договора — подтвердить' },
+  { type: 'Контакты: телефон, e-mail, мессенджеры', volume: 'окончательные значения' }
+];
+
+const FAQ_QUESTIONS = [
+  'Безопасно ли в Дагестане сейчас (особенно для женщины одной)?',
+  'Как одеваться — есть ли дресс-код в мечетях, аулах?',
+  'Можно ли с детьми и пожилыми родителями? До какого возраста?',
+  'Что включено в стоимость тура (трансфер, питание, проживание, билеты)?',
+  'Как добраться до Махачкалы — варианты и примерные цены?',
+  'Какая оплата — карта / наличные / рассрочка / частями?',
+  'Можно ли употреблять алкоголь в туре?',
+  'Что с едой — вегетарианцы, аллергии, халяль?',
+  'Есть ли связь в горах — где «глухие зоны»?',
+  'Возврат и перенос даты — какие условия?'
+];
+
+// ============ Рендеринг ============
+
+function renderBlocks() {
+  const root = document.getElementById('blocks-list');
+  root.innerHTML = BLOCKS.map(b => `
+    <div class="block-card">
+      <div class="block-card__head">
+        <div class="block-card__title">
+          <span class="pos">Блок ${String(b.id).padStart(2, '0')}</span>${b.title}
+        </div>
+        <div class="choice-group" data-radio="block_${b.id}">
+          <label class="choice"><input type="radio" name="block_${b.id}" value="keep"> Оставить как есть</label>
+          <label class="choice"><input type="radio" name="block_${b.id}" value="edit"> Нужны правки</label>
+          <label class="choice"><input type="radio" name="block_${b.id}" value="drop"> Убрать</label>
+        </div>
+      </div>
+      <div class="block-card__desc">${b.desc}</div>
+      <div class="block-card__notes">
+        <textarea data-key="block_${b.id}_notes" placeholder="Комментарии Шарипа: что менять, что добавить, на чём акцент"></textarea>
+      </div>
+    </div>
+  `).join('');
+}
+
+function renderDiffs() {
+  const root = document.getElementById('diffs-list');
+  root.innerHTML = DIFFS.map((d, idx) => `
+    <div class="diff-row">
+      <div class="diff-row__num">${d.num}</div>
+      <div class="diff-row__base">
+        ${d.base}<small>${d.sub}</small>
+      </div>
+      <select data-key="diff_${idx}_status">
+        <option value="">— решение —</option>
+        <option value="keep">Оставляем</option>
+        <option value="rephrase">Переформулируем</option>
+        <option value="drop">Убираем</option>
+        <option value="replace">Заменяем</option>
+      </select>
+      <input type="text" data-key="diff_${idx}_new" placeholder="Если меняем — новая формулировка / новое отличие">
+    </div>
+  `).join('');
+}
+
+function renderAdmin() {
+  const root = document.getElementById('admin-list');
+  root.innerHTML = ADMIN_SECTIONS.map(s => `
+    <div class="admin-section">
+      <div class="admin-section__head">
+        <div class="admin-section__title">${s.title}</div>
+        <div class="admin-section__contract">${s.contract}</div>
+      </div>
+      <div class="field__hint" style="margin-bottom:12px">Отметьте, какие поля Шарип хочет редактировать сам через админку. Неотмеченное вшивается в код или меняется через нас.</div>
+      <div class="admin-fields">
+        ${s.fields.map((f, i) => `
+          <label class="admin-field">
+            <input type="checkbox" data-key="admin_${s.id}_${i}">
+            <span>${f}</span>
+          </label>
+        `).join('')}
+      </div>
+      ${s.questions.map(q => `
+        <div class="field" style="margin-top:12px;margin-bottom:0">
+          <label class="field__label" style="font-size:12px;font-weight:500">${q.label}</label>
+          <input type="text" data-key="${q.key}" placeholder="${q.placeholder}">
+        </div>
+      `).join('')}
+    </div>
+  `).join('');
+}
+
+function renderContent() {
+  const root = document.getElementById('content-tbody');
+  root.innerHTML = CONTENT_ROWS.map((r, i) => `
+    <tr>
+      <td>${r.type}</td>
+      <td style="color:var(--ink-45);font-size:11px">${r.volume}</td>
+      <td>
+        <select data-key="content_${i}_status">
+          <option value="">—</option>
+          <option value="ready">Уже есть</option>
+          <option value="prep">Готовится</option>
+          <option value="missing">Нет, нужно</option>
+          <option value="markins">Делаем мы</option>
+        </select>
+      </td>
+      <td><input type="text" data-key="content_${i}_owner" placeholder="Шарип / коллега-фотограф / Markins / стоки"></td>
+      <td><input type="text" data-key="content_${i}_due" placeholder="дд.мм"></td>
+      <td><input type="text" data-key="content_${i}_note" placeholder=""></td>
+    </tr>
+  `).join('');
+}
+
+function renderFaq() {
+  const root = document.getElementById('faq-list');
+  root.innerHTML = FAQ_QUESTIONS.map((q, i) => `
+    <div class="diff-row">
+      <div class="diff-row__num">${String(i + 1).padStart(2, '0')}</div>
+      <div class="diff-row__base">${q}</div>
+      <select data-key="faq_${i}_status">
+        <option value="">— решение —</option>
+        <option value="keep">Оставляем</option>
+        <option value="rephrase">Переформулируем</option>
+        <option value="drop">Убираем</option>
+      </select>
+      <input type="text" data-key="faq_${i}_new" placeholder="Если меняем — новая формулировка">
+    </div>
+  `).join('');
+}
+
+// ============ Сохранение ============
+
+const STORAGE_KEY = 'salam-tour-interview-v1';
+let saveTimer = null;
+
+function loadAll() {
+  let data = {};
+  try { data = JSON.parse(localStorage.getItem(STORAGE_KEY) || '{}'); } catch(e) {}
+
+  document.querySelectorAll('[data-key]').forEach(el => {
+    const k = el.getAttribute('data-key');
+    if (data[k] === undefined) return;
+    if (el.type === 'checkbox') {
+      el.checked = !!data[k];
+    } else if (el.type === 'radio') {
+      el.checked = (data[k] === el.value);
+    } else {
+      el.value = data[k];
+    }
+  });
+
+  // подсветка choice-групп после загрузки
+  document.querySelectorAll('[data-radio]').forEach(group => {
+    const name = group.getAttribute('data-radio');
+    const checked = group.querySelector(`input[name="${name}"]:checked`);
+    if (checked) updateChoiceVisuals(group, checked.value);
+  });
+
+  // подсветка палитр
+  const paletteChecked = document.querySelector('input[name="palette_choice"]:checked');
+  if (paletteChecked) {
+    document.querySelectorAll('[data-palette-card]').forEach(c => {
+      c.classList.toggle('is-checked', c.getAttribute('data-palette-card') === paletteChecked.value);
+    });
+  }
+}
+
+function saveAll() {
+  const data = {};
+  document.querySelectorAll('[data-key]').forEach(el => {
+    const k = el.getAttribute('data-key');
+    if (el.type === 'checkbox') {
+      data[k] = el.checked;
+    } else if (el.type === 'radio') {
+      if (el.checked) data[k] = el.value;
+    } else {
+      if (el.value) data[k] = el.value;
+    }
+  });
+  localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
+
+  const status = document.getElementById('save-status');
+  status.textContent = 'Сохранено';
+  status.classList.add('is-saved');
+  clearTimeout(saveTimer);
+  saveTimer = setTimeout(() => {
+    status.textContent = 'Изменения сохраняются автоматически';
+    status.classList.remove('is-saved');
+  }, 1500);
+}
+
+function updateChoiceVisuals(group, value) {
+  const labels = group.querySelectorAll('.choice');
+  labels.forEach(lbl => {
+    lbl.classList.remove('is-checked-keep', 'is-checked-edit', 'is-checked-drop', 'is-checked-default');
+    const inp = lbl.querySelector('input');
+    if (!inp || !inp.checked) return;
+    if (inp.value === 'keep') lbl.classList.add('is-checked-keep');
+    else if (inp.value === 'edit') lbl.classList.add('is-checked-edit');
+    else if (inp.value === 'drop') lbl.classList.add('is-checked-drop');
+    else lbl.classList.add('is-checked-default');
+  });
+}
+
+function bindEvents() {
+  document.addEventListener('input', (e) => {
+    if (e.target.matches('[data-key]')) saveAll();
+  });
+  document.addEventListener('change', (e) => {
+    if (e.target.matches('[data-key]')) saveAll();
+    if (e.target.type === 'radio') {
+      const group = e.target.closest('[data-radio]');
+      if (group) updateChoiceVisuals(group, e.target.value);
+
+      if (e.target.name === 'palette_choice') {
+        document.querySelectorAll('[data-palette-card]').forEach(c => {
+          c.classList.toggle('is-checked', c.getAttribute('data-palette-card') === e.target.value);
+        });
+      }
+    }
+  });
+}
+
+function resetAll() {
+  if (!confirm('Очистить все ответы? Это действие нельзя отменить.')) return;
+  localStorage.removeItem(STORAGE_KEY);
+  document.querySelectorAll('[data-key]').forEach(el => {
+    if (el.type === 'checkbox' || el.type === 'radio') el.checked = false;
+    else el.value = '';
+  });
+  document.querySelectorAll('.choice').forEach(c => {
+    c.classList.remove('is-checked-keep', 'is-checked-edit', 'is-checked-drop', 'is-checked-default');
+  });
+  document.querySelectorAll('[data-palette-card]').forEach(c => c.classList.remove('is-checked'));
+}
+
+// ============ Инициализация ============
+
+renderBlocks();
+renderDiffs();
+renderAdmin();
+renderContent();
+renderFaq();
+bindEvents();
+loadAll();
+</script>
+</body>
+</html>
